@@ -1,10 +1,26 @@
 /* Root Properties */
 
 :root {
+	/* Colors */
 	--active-color:#1c7aff;
-	--active-text-color:#ffffff;
+	--dark-active-color:#0c59dd;
+	--text-color:#ffffff;
+	--main-color:#2d2d2d;
+	--dark-color:#1d1d1d;
+	--light-color:#3d3d3d;
+	--lighter-color:#4d4d4d;
+	--lightest-color:#5d5d5d;
+	/* Font */
 	--font:"Nunito",sans-serif;
+	--basic-font-size:14px;
+	--small-font-size:12px;
+	--big-font-size:18px;
+	--huge-font-size:22px;
+	/* Border */
+	--border-radius:2px;
+	/* Settings */
 	font-family:var(--font);
+	color:var(--text-color);
 }
 
 /* Body Properties */
@@ -18,12 +34,75 @@ body {
 
 header {
 	padding:20px;
+	background:var(--active-color);
 }
 
 /* Content Properties */
 
+/* Button Properties */
+
+input[type=button] {
+	border-radius:var(--border-radius);
+	padding-left:10px;
+	padding-right:10px;
+	transition:0.25s;
+}
+
+.btn {
+	background:var(--light-color);
+}
+
+.btn:hover {
+	background:var(--lighter-color);
+}
+
+.active-btn {
+	background:var(--active-color);
+}
+
+.active-btn:hover {
+	background:var(--dark-active-color);
+}
+
+/* Anchor Properties */
+
+a {
+	text-decoration:none;
+	background:var(--light-color);
+	color:var(--text-color);
+	border-radius:var(--border-radius);
+}
+
+a:active {
+	background:var(--lighter-color);
+	color:var(--text-color);
+}
+
+a:visited {
+	color:var(--text-color);	
+}
+
 /* Default Properties */
+
+input {
+	border:0;
+	color:var(--text-color);
+	background:var(--light-color);
+	font-family:var(--font);
+}
 
 input:focus {
 	outline:0;	
+}
+
+h1 {
+	font-size:var(--huge-font-size);
+	margin-top:0;
+	margin-bottom:0;
+}
+
+p {
+	font-size:var(--basic-font-size);
+	margin-top:0;
+	margin-bottom:0;
 }
