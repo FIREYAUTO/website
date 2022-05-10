@@ -65,7 +65,7 @@ const HighlightTypes = {
 			},
 			{
 				name:"Keyword",
-				match:"(?<!\\.)(\\b(var|const|let|function|while|do|for|in|of|async|await|return|yield|if|else|switch|case|default|break|continue|try|catch|finally|void|with|constructor|super|this)\\b)",
+				match:"(?<!\\.)(\\b(var|const|let|function|while|do|for|in|of|async|await|return|yield|if|else|switch|case|default|break|continue|try|catch|finally|void|with|constructor|super|this|new)\\b)",
 			},
 			{
 				name:"Global",
