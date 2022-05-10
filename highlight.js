@@ -57,6 +57,6 @@ const HighlightCode = (Code,Language)=>{
 
 const HighlightElements = document.querySelectorAll("[highlighted]");
 
-HighlightedElements.forEach(x=>{
+HighlightElements.forEach(x=>{
 	x.innerHTML = HighlightCode(x.innerText,x.getAttribute("highlight-language"));	
 });
