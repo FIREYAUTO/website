@@ -56,6 +56,14 @@ header {
 	padding:50px;
 }
 
+.code-block {
+	tab-size:4;
+	border:2px solid var(--lighter-color);
+	background:var(--light-color);
+	font-family:"Fira Mono",monospace;
+	border-radius:var(--border-radius);
+}
+
 /* Button Properties */
 
 input[type=button] {
