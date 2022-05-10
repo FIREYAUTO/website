@@ -24,7 +24,7 @@ function IterateMatches(Result,M){
 	for(let	MA of M){
 		let DidMatch=true;
 		if(MA.hasOwnProperty("match")){
-			let REX=RE(MA.match,MA.types);
+			let REX=RE(MA.match,MA.types||"g");
 			let R=Result;
 			Result=REP(Result,REX,RCT(HighlightColors[MA.name]));
 			DidMatch=R!=Result;
@@ -39,12 +39,53 @@ const HighlightTypes = {
 	JavaScript:function(Code){
 		let Matches = [
 			{
+				name:"Comment",
+				match:"\\/\\*.*?\\*\\/",
+				types:"gms",
+			},
+			{
+				name:"Comment",
+				match:"\\/{2}.*",
+			},
+			{
 				name:"String",
 				match:"\".*?\"",
 			},
 			{
 				name:"String",
 				match:"'.*?'",
+			},
+			{
+				name:"Number",
+				match:"(?<!\\w+)((0(x[A-Fa-f0-9]+|(b[0-1]+))|((?<!\\.)\\.[0-9]+(e[\\+\\-]?[0-9]+)?)|([0-9]+(\\.[0-9]+)?(e[\\+\\-]?[0-9]+)?)))(?!\\w+)",
+			},
+			{
+				name:"Index",
+				match:"\\.([A-Za-z_\\$][A-Za-z_0-0\\$]+)",
+			},
+			{
+				name:"Keyword",
+				match:"(?<!\\.)(\\b(var|const|let|function|while|do|for|in|of|async|await|return|yield|if|else|switch|case|default|break|continue|try|catch|finally|void|with|constructor|super|this)\\b)",
+			},
+			{
+				name:"Global",
+				match:"(?<!\\.)(\\b(document|window|setTimeout|setInterval|clearInterval|RegExp|Proxy|Object|String|Number|Boolean|Map|Set|Array|BigInt|parseInt|parseFloat|json)\\b)",
+			},
+			{
+				name:"Boolean",
+				match:"(\\b(true|false|null|undefined)\\b)",
+			},
+			{
+				name:"Call",
+				match:"(?<!\\.\\s*)\\w+(?=\\()",
+			},
+			{
+				name:"Bracket",
+				match:"(\\(|\\)|\\{|\\}|\\[|\\]|\\;)"
+			},
+			{
+				name:"Operator",
+				match:"(\\+|\\-|\\>|\\<|\\|\\&|\\~|\\*|\\/|\\^|\\!|\\:|\\?|\\.|\\,|\\%|\\=)",
 			},
 		];
 		return IterateMatches(Code,Matches);
