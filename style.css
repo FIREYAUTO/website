@@ -63,7 +63,7 @@ header {
 	background:var(--light-color);
 	font-family:"Fira Mono",monospace;
 	border-radius:var(--border-radius);
-	width:400px;
+	width:calc(100% - 150px);
 }
 
 .small-code-block {
