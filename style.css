@@ -1,0 +1,29 @@
+/* Root Properties */
+
+:root {
+	--active-color:#1c7aff;
+	--active-text-color:#ffffff;
+	--font:"Nunito",sans-serif;
+	font-family:var(--font);
+}
+
+/* Body Properties */
+
+body {
+	padding:0;
+	margin:0;
+}
+
+/* Header Properties */
+
+header {
+	padding:20px;
+}
+
+/* Content Properties */
+
+/* Default Properties */
+
+input:focus {
+	outline:0;	
+}
