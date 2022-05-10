@@ -39,10 +39,7 @@ header {
 
 #header-nav {
 	height:100%;
-	width:auto;
-	float:right;
-	align-items:center;
-	display:flex;
+	display:inline;
 }
 
 #header-nav > a {
