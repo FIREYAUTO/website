@@ -130,4 +130,6 @@ hr {
 	height:2px;
 	color:var(--main-color);
 	background:var(--main-color);
+	border:0;
+	width:85%;
 }
