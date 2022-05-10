@@ -4,6 +4,7 @@
 	/* Colors */
 	--active-color:#1c7aff;
 	--dark-active-color:#0c59dd;
+	--light-active-color:#45a3ff;
 	--text-color:#ffffff;
 	--main-color:#2d2d2d;
 	--dark-color:#1d1d1d;
@@ -83,13 +84,15 @@ input[type=button] {
 
 a {
 	text-decoration:none;
-	background:var(--light-color);
+	background:var(--light-active-color);
 	color:var(--text-color);
 	border-radius:var(--border-radius);
+	padding-right:10px;
+	padding-left:10px;
 }
 
 a:active {
-	background:var(--lighter-color);
+	background:var(--light-active-color);
 	color:var(--text-color);
 }
 
