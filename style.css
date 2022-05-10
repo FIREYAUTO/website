@@ -109,6 +109,10 @@ a:visited {
 	color:var(--text-color);	
 }
 
+a:focus {
+	outline:0;	
+}
+
 /* Default Properties */
 
 input {
