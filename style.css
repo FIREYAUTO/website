@@ -125,3 +125,9 @@ p {
 	margin-top:0;
 	margin-bottom:0;
 }
+
+hr {
+	height:2px;
+	color:var(--main-color);
+	background:var(--main-color);
+}
