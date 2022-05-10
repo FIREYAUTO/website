@@ -37,7 +37,24 @@ header {
 	background:var(--active-color);
 }
 
+#header-nav {
+	height:100%;
+	width:auto;
+	float:right;
+	align-items:center;
+	display:flex;
+}
+
+#header-nav > a {
+	margin-left:20px;	
+}
+
 /* Content Properties */
+
+#content {
+	width:100%;
+	height:auto;
+}
 
 /* Button Properties */
 
