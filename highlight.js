@@ -30,7 +30,7 @@ function IterateMatches(Result,M){
 			DidMatch=R!=Result;
 		}
 		if(MA.hasOwnProperty("matches")&&DidMatch)
-			Result=IterateMatches(MA.matches,Result);
+			Result=IterateMatches(Result,MA.matches);
 	}
 	return Result;
 }
@@ -47,7 +47,7 @@ const HighlightTypes = {
 				match:"'.*?'",
 			},
 		];
-		return IterateMatches(Matches,Text);
+		return IterateMatches(Code,Matches);
 	},
 };
 const HighlightCode = (Code,Language)=>{
