@@ -36,7 +36,7 @@ function IterateMatches(Result,M){
 				else {
 					Result=RES;
 					continue;
-			[};
+				}
 			}
 		}
 		if(MA.hasOwnProperty("matches")&&DidMatch)
