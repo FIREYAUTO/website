@@ -136,7 +136,10 @@ const HighlightCode = (Code,Language)=>{
 const CheckHighlightElements = ()=>{
 	const HighlightElements = document.querySelectorAll("[highlighted]");
 	HighlightElements.forEach(x=>{
-		x.innerHTML = HighlightCode(x.innerText.escapeHTML(),x.getAttribute("highlight-language"));	
+		let lang=x.getAttribute("highlight-language");
+		x.innerHTML = HighlightCode(x.innerText.escapeHTML(),lang);
+		x.removeAttribute("highlighted");
+		if(lang)x.removeAttribute("highlight-language");
 	});	
 };
 
