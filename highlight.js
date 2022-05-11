@@ -26,8 +26,18 @@ function IterateMatches(Result,M){
 		if(MA.hasOwnProperty("match")){
 			let REX=RE(MA.match,MA.types||"g");
 			let R=Result;
-			Result=REP(Result,REX,RCT(HighlightColors[MA.name]));
-			DidMatch=R!=Result;
+			if(!MA.hasOwnProperty("matches")){
+				Result=REP(Result,REX,RCT(HighlightColors[MA.name]));
+				DidMatch=R!=Result;
+			}else if(Result.match(REX)){
+				let RES=IterateMatches(Result,MA.matches);
+				DidMatch=R!=RES;
+				if(!DidMatch)Result=REP(Result,REX,RCT(HighlightColors[MA.name]));
+				else {
+					Result=RES;
+					continue;
+			[};
+			}
 		}
 		if(MA.hasOwnProperty("matches")&&DidMatch)
 			Result=IterateMatches(Result,MA.matches);
@@ -61,7 +71,13 @@ const HighlightTypes = {
 			},
 			{
 				name:"Index",
-				match:"\\.([A-Za-z_\\$][A-Za-z_0-0\\$]+)",
+				match:"(?<=\\.)([A-Za-z_\\$][A-Za-z_0-0\\$]+)",
+				matches:[
+					{
+						name:"Method",
+						match:"(?<=\\.)([A-Za-z_\\$][A-Za-z_0-0\\$]+)(?=\\s*\\()"
+					},
+				],
 			},
 			{
 				name:"Keyword",
