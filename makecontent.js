@@ -34,21 +34,24 @@ const Apply = (a,b)=>{
 				Create("h2",{
 					innerHTML:MatchText(`{${Element.Name}}`),
 				},Content);
+				const Holder = Create("div",{
+					className:"quote-block",
+				},Content);
 				Create("p",{
 					innerHTML:MatchText(Element.Description),
-				},Content);
+				},Holder);
 				let pre = Create("pre",{
 					className:"code-block",
 					innerHTML:Element.Code,
-				},Content);
+				},Holder);
 				pre.setAttribute("highlighted",true);
 				pre.setAttribute("highlight-language",Language);
 				if(Element.Example){
-					Create("p",{innerHTML:"Example:"},Content);
+					Create("p",{innerHTML:"Example:"},Holder);
 					let pre = Create("pre",{
 						className:"code-block",
 						innerHTML:Element.Example,
-					},Content);
+					},Holder);
 					pre.setAttribute("highlighted",true);
 					pre.setAttribute("highlight-language",Language);
 				}
