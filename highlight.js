@@ -98,11 +98,15 @@ const HighlightTypes = {
 			},
 			{
 				name:"Keyword",
-				match:"(?<!\\.)(\\b(var|const|let|function|while|do|for|in|of|async|await|return|yield|if|else|switch|case|default|break|continue|try|catch|finally|void|with|constructor|super|this|new)\\b)",
+				match:"(?<!\\.)(\\b(var|const|let|function|while|do|for|in|of|async|await|return|yield|if|else|switch|case|default|break|continue|try|catch|finally|void|with|constructor|super|this|new|class|extends)\\b)",
+			},
+			{
+				name:"Keyword",
+				match:"(\\b(get|set)\\b)(?=\\s*([A-Za-z_\\$][A-Za-z_0-0\\$]+)\\s*\\()",
 			},
 			{
 				name:"Global",
-				match:"(?<!\\.)(\\b(document|window|setTimeout|setInterval|clearInterval|RegExp|Proxy|Object|String|Number|Boolean|Map|Set|Array|BigInt|parseInt|parseFloat|json)\\b)",
+				match:"(?<!\\.)(\\b(document|window|setTimeout|setInterval|clearInterval|RegExp|Proxy|Object|String|Number|Boolean|Map|Set|Array|BigInt|parseInt|parseFloat|json|XMLHttpRequest|Request|fetch|atob|btoa|Infinity|isNaN|isFinite|NaN)\\b)",
 			},
 			{
 				name:"Boolean",
