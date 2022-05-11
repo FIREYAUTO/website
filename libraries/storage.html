@@ -17,8 +17,63 @@
 		<div id="header-nav"></div>
 	</header>
 	<div id="content">
+		<h1>Storage Library</h1>
+		<h2>Classes</h2>
+		<hr>
 		<p>The <span class="small-code-block">Storage</span> class is a base class. This class holds all the properties for the other storage classes</p>
-		<pre class="code-block" highlighted highlight-language="JavaScript">new Storage()</pre>
+		<pre class="code-block" highlighted highlight-language="JavaScript">new Storage(Name, StorageObject)</pre>
+		<hr class="small-hr">
+		<p>The <span class="small-code-block">LocalStorage</span> class extends the <span class="small-code-block">Storage</span> class. This class represents a key in <span class="small-code-block" highlighted highlight-language="JavaScript">window.localStorage</span></p>
+		<pre class="code-block" highlighted highlight-language="JavaScript">new LocalStorage(Name)</pre>
+		<hr class="small-hr">
+		<p>The <span class="small-code-block">SessionStorage</span> class extends the <span class="small-code-block">Storage</span> class. This class represents a key in <span class="small-code-block" highlighted highlight-language="JavaScript">window.sessionStorage</span></p>
+		<pre class="code-block" highlighted highlight-language="JavaScript">new SessionStorage(Name)</pre>
+		<hr>
+		<h2>Methods</h2>
+		<hr>
+		<p>Returns the given item stored inside the Storage object</p>
+		<pre class="code-block" highlighted highlight-language="JavaScript">Storage.GetItem(Name)</pre>
+		<p>Example:</p>
+		<pre class="code-block" highlighted highlight-language="JavaScript">Storage.GetItem("Test")</pre>
+		<hr class="small-hr">
+		
+		<p>Returns all items stored inside the Storage object</p>
+		<pre class="code-block" highlighted highlight-language="JavaScript">Storage.GetItems()</pre>
+		<hr class="small-hr">
+		
+		<p>Stores the given Name as Value in the Storage object</p>
+		<pre class="code-block" highlighted highlight-language="JavaScript">Storage.SetItem(Name, Value)</pre>
+		<p>Example:</p>
+		<pre class="code-block" highlighted highlight-language="JavaScript">Storage.SetItem("Test",true)</pre>
+		<hr class="small-hr">
+		
+		<p>Removes the given Name from the Storage object</p>
+		<pre class="code-block" highlighted highlight-language="JavaScript">Storage.RemoveItem(Name)</pre>
+		<p>Example:</p>
+		<pre class="code-block" highlighted highlight-language="JavaScript">Storage.RemoveItem("Test")</pre>
+		<hr class="small-hr">
+		
+		<p>Calls the Callback function with Name in the Storage object, and returns if the item matches the condition</p>
+		<pre class="code-block" highlighted highlight-language="JavaScript">Storage.Check(Name, Callback)</pre>
+		<p>Example:</p>
+		<pre class="code-block" highlighted highlight-language="JavaScript">Storage.Check("Test",Item=>Item===true)</pre>
+		<hr class="small-hr">
+		
+		<p>The internal storage object</p>
+		<pre class="code-block" highlighted highlight-language="JavaScript">Storage.__SO</pre>
+		<hr class="small-hr">
+		
+		<p>The internal name of the storage</p>
+		<pre class="code-block" highlighted highlight-language="JavaScript">Storage.__NAME</pre>
+		<hr class="small-hr">
+		
+		<p>An internal function with has the same functionality as <span class="small-code-block" highlighted highlight-language="JavaScript">Storage.GetItems()</span></p>
+		<pre class="code-block" highlighted highlight-language="JavaScript">Storage.__GET_STORAGE()</pre>
+		<hr class="small-hr">
+		
+		<p>An internal function which sets the storage object in its internal storage</p>
+		<pre class="code-block" highlighted highlight-language="JavaScript">Storage.__SET_STORAGE(Object)</pre>
+		<hr class="small-hr">
 	</div>
 	<script src="https://fireyauto.github.io/website/main.js"></script>
 	<script src="https://fireyauto.github.io/website/highlight.js"></script>
