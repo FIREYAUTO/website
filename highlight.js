@@ -133,8 +133,11 @@ const HighlightCode = (Code,Language)=>{
 	return HighlightTypes[Language](Code);
 };
 
-const HighlightElements = document.querySelectorAll("[highlighted]");
+const CheckHighlightElements = ()=>{
+	const HighlightElements = document.querySelectorAll("[highlighted]");
+	HighlightElements.forEach(x=>{
+		x.innerHTML = HighlightCode(x.innerText.escapeHTML(),x.getAttribute("highlight-language"));	
+	});	
+};
 
-HighlightElements.forEach(x=>{
-	x.innerHTML = HighlightCode(x.innerText.escapeHTML(),x.getAttribute("highlight-language"));	
-});
+CheckHighlightElements();
