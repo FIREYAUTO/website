@@ -15,10 +15,10 @@ const Apply = (a,b)=>{
 	
 	const MatchText = t=>{
 		t=t.replace(/\{{2}.*?\}{2}/g,function(x){
-			return `<span class="small-code-box" highlighted highlight-language="${Language}">${x.match(/(?<=\{{2}).*(?=\}{2})/)}</span>`;
+			return `<span class="small-code-block" highlighted highlight-language="${Language}">${x.match(/(?<=\{{2}).*(?=\}{2})/)}</span>`;
 		});
 		t=t.replace(/\{.*?\}/g,function(x){
-			return `<span class="small-code-box">${x.match(/(?<=\{).*(?=\})/)}</span>`;
+			return `<span class="small-code-block">${x.match(/(?<=\{).*(?=\})/)}</span>`;
 		});
 		return t;	
 	}
