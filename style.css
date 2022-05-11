@@ -93,6 +93,11 @@ header > h1 {
 	padding-right:10px;
 }
 
+.quote-block {
+	padding-left:20px;
+	border-left:4px solid var(--lighter-color);
+}
+
 /* Button Properties */
 
 input[type=button] {
