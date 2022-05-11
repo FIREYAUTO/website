@@ -18,77 +18,102 @@
 	</header>
 	<div id="content">
 		<h1>Storage Library</h1>
-		<h2>Classes</h2>
 		<hr>
-		<p>The <span class="small-code-block">Storage</span> class is a base class. This class holds all the properties for the other storage classes</p>
-		<pre class="code-block" highlighted highlight-language="JavaScript">new Storage(Name, StorageObject)</pre>
-		<hr class="small-hr">
-		<p>The <span class="small-code-block">LocalStorage</span> class extends the <span class="small-code-block">Storage</span> class. This class represents a key in <span class="small-code-block" highlighted highlight-language="JavaScript">window.localStorage</span></p>
-		<pre class="code-block" highlighted highlight-language="JavaScript">new LocalStorage(Name)</pre>
-		<hr class="small-hr">
-		<p>The <span class="small-code-block">SessionStorage</span> class extends the <span class="small-code-block">Storage</span> class. This class represents a key in <span class="small-code-block" highlighted highlight-language="JavaScript">window.sessionStorage</span></p>
-		<pre class="code-block" highlighted highlight-language="JavaScript">new SessionStorage(Name)</pre>
-		<hr>
-		<h2>Methods</h2>
-		<hr>
-		
-		<h2><span class="small-code-block">GetItem</span></h2>
-		<p>Returns the given item stored inside the Storage object</p>
-		<pre class="code-block" highlighted highlight-language="JavaScript">Storage.GetItem(Name)</pre>
-		<p>Example:</p>
-		<pre class="code-block" highlighted highlight-language="JavaScript">Storage.GetItem("Test")</pre>
-		<hr class="small-hr">
-		
-		<h2><span class="small-code-block">GetItems</span></h2>
-		<p>Returns all items stored inside the Storage object</p>
-		<pre class="code-block" highlighted highlight-language="JavaScript">Storage.GetItems()</pre>
-		<hr class="small-hr">
-		
-		<h2><span class="small-code-block">SetItem</span></h2>
-		<p>Stores the given Name as Value in the Storage object</p>
-		<pre class="code-block" highlighted highlight-language="JavaScript">Storage.SetItem(Name, Value)</pre>
-		<p>Example:</p>
-		<pre class="code-block" highlighted highlight-language="JavaScript">Storage.SetItem("Test",true)</pre>
-		<hr class="small-hr">
-		
-		<h2><span class="small-code-block">RemoveItem</span></h2>
-		<p>Removes the given Name from the Storage object</p>
-		<pre class="code-block" highlighted highlight-language="JavaScript">Storage.RemoveItem(Name)</pre>
-		<p>Example:</p>
-		<pre class="code-block" highlighted highlight-language="JavaScript">Storage.RemoveItem("Test")</pre>
-		<hr class="small-hr">
-		
-		<h2><span class="small-code-block">Check</span></h2>
-		<p>Calls the Callback function with Name in the Storage object, and returns if the item matches the condition</p>
-		<pre class="code-block" highlighted highlight-language="JavaScript">Storage.Check(Name, Callback)</pre>
-		<p>Example:</p>
-		<pre class="code-block" highlighted highlight-language="JavaScript">Storage.Check("Test",Item=>Item===true)</pre>
-		<hr class="small-hr">
-		
-		<h2><span class="small-code-block">__SO</span></h2>
-		<p>The internal storage object</p>
-		<pre class="code-block" highlighted highlight-language="JavaScript">Storage.__SO</pre>
-		<hr class="small-hr">
-		
-		<h2><span class="small-code-block">__NAME</span></h2>
-		<p>The internal name of the storage</p>
-		<pre class="code-block" highlighted highlight-language="JavaScript">Storage.__NAME</pre>
-		<hr class="small-hr">
-		
-		<h2><span class="small-code-block">__GET_STORAGE</span></h2>
-		<p>An internal function with has the same functionality as <span class="small-code-block" highlighted highlight-language="JavaScript">Storage.GetItems()</span></p>
-		<pre class="code-block" highlighted highlight-language="JavaScript">Storage.__GET_STORAGE()</pre>
-		<hr class="small-hr">
-		
-		<h2><span class="small-code-block">__SET_STORAGE</span></h2>
-		<p>An internal function which sets the storage object in its internal storage</p>
-		<pre class="code-block" highlighted highlight-language="JavaScript">Storage.__SET_STORAGE(Object)</pre>
-		<hr class="small-hr">
-		
-		<h1>Library Example</h1>
-		<pre class="code-block" highlighted highlight-language="JavaScript">const MyStorage = new LocalStorage("MyStorage");&#10;MyStorage.SetItem("Test",true);&#10;console.log(MyStorage.GetItem("Test"));&#10;console.log(MyStorage.Check("Test",Item=>Item===true));&#10;MyStorage.RemoveItem("Test");&#10;console.log(MyStorage.GetItem("Test"));</pre>
 	</div>
 	<script src="https://fireyauto.github.io/website/main.js"></script>
 	<script src="https://fireyauto.github.io/website/highlight.js"></script>
+	<script>
+	
+		
+	const Language = "JavaScript";
+	const Content = document.getElementById("content");
+	const ElementTable = {
+		"Classes":{
+			Type:"Usage",
+			Elements:[
+				{
+					Name:"Storage",
+					Description:"The {Storage} class is a base class. This class holds all the properties for the other storage classes",
+					Code:"new Storage(Name, StorageObject)",
+				},
+				{
+					Name:"LocalStorage",
+					Description:"The {LocalStorage} class extends the {Storage} class. This class represents a key in {{window.localStorage}}",
+					Code:"new LocalStorage(Name)",
+				},
+				{
+					Name:"SessionStorage",
+					Description:"The {SessionStorage} class extends the {Storage} class. This class represents a key in {{window.sessionStorage}}",
+					Code:"new SessionStorage(Name)",
+				},
+			],
+		},
+		"Methods":{
+			Type:"Usage",
+			Elements:[
+				{
+					Name:"GetItem",
+					Description:"Returns the given item stored inside the Storage object",
+					Code:"Storage.GetItem(Name)",
+					Example:"Storage.GetItem(\"Test\")",
+				},
+				{
+					Name:"GetItems",
+					Description:"Returns all items stored inside the Storage object",
+					Code:"Storage.GetItems()",
+				},
+				{
+					Name:"SetItem",
+					Description:"Stores the given Name as Value in the Storage object",
+					Code:"Storage.SetItem(Name, Value)",
+					Example:"Storage.SetItem(\"Test\",true)",
+				},
+				{
+					Name:"RemoveItem",
+					Description:"Removes the given Name from the Storage object",
+					Code:"Storage.RemoveItem(Name)",
+					Example:"Storage.RemoveItem(\"Test\")",
+				},
+				{
+					Name:"Check",
+					Description:"Calls the Callback function with Name in the Storage object, and returns if the item matches the condition",
+					Code:"Storage.Check(Name, Callback)",
+					Example:"Storage.Check(\"Test\",Item=>Item===true)",
+				},
+				{
+					Name:"__SO",
+					Description:"The internal storage object",
+					Code:"Storage.__SO",
+				},
+				{
+					Name:"__NAME",
+					Description:"The internal name of the storage",
+					Code:"Storage.__NAME",
+				},
+				{
+					Name:"__GET_STORAGE",
+					Description:"An internal function with has the same functionality as {{Storage.GetItems()}}",
+					Code:"Storage.__GET_STORAGE()",
+				},
+				{
+					Name:"__SET_STORAGE",
+					Description:"An internal function which sets the storage object in its internal storage",
+					Code:"Storage.__SET_STORAGE(Object)",
+				},
+			],
+		},
+		"Library Examples":{
+			Type:"Examples",
+			Elements:[
+				{
+					Description:"Testing the Storage Library",
+					Code:`const MyStorage = new LocalStorage("MyStorage");&#10;MyStorage.SetItem("Test",true);&#10;console.log(MyStorage.GetItem("Test"));&#10;console.log(MyStorage.Check("Test",Item=>Item===true));&#10;MyStorage.RemoveItem("Test");&#10;console.log(MyStorage.GetItem("Test"));`,
+				},
+			],
+		}
+	}
+	
+	</script>
+	<script src="https://fireyauto.github.io/website/makecontent.js"></script>
 </body>
 </html>
