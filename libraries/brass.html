@@ -35,20 +35,142 @@
 			Type:"Syntax",
 			Elements:[
 				{
-					Name:"",
-					Description:"",
-					Code:"",
+					Name:"BrassElement",
+					Description:"The {BrassElement} is a base class. It is responsible for the proxy between brass and vanilla HTML",
+					Code:"new BrassElement(HTMLElement)",
+				},
+				{
+					Name:"BrassDocumentElement",
+					Description:"The {BrassDocumentElement} class extends the {BrassElement} class. It is the reference to the {{document}} global.",
+					Code:"new BrassDocumentElement(document)",
+					Example:"const Document = new BrassDocumentElement(document);"
+				},
+				{
+					Name:"BrassCreatableElement",
+					Description:"The {BrassCreatableElement} class extends the {BrassElement} class. It allows for custom elements.",
+					Code:"new BrassCreatableElement(TagName)",
+					Example:"const Input = new BrassCreatableElement(\"input\");"
 				},
 			],
 		},
-		"Methods":{
+		"BrassElement Properties":{
 			Type:"Syntax",
 			Elements:[
 				{
-					Name:"",
-					Description:"",
-					Code:"",
-					Example:"",
+					Name:"Parent",
+					Description:"A getter function which returns a brass element linked to the parentNode of the real HTML element. Can also be set.",
+					Code:"BrassElement.Parent",
+				},
+				{
+					Name:"ClassName",
+					Description:"The tagName of the real HTML element.",
+					Code:"BrassElement.ClassName",
+				},
+				{
+					Name:"Children",
+					Description:"An array containing all the child nodes in the real HTML element.",
+					Code:"BrassElement.Children",
+				},
+				{
+					Name:"FirstChild",
+					Description:"A brass element linked to the firstChild of the real HTML element.",
+					Code:"BrassElement.FirstChild",
+				},
+				{
+					Name:"LastChild",
+					Description:"A brass element linked to the lastChild of the real HTML element.",
+					Code:"BrassElement.LastChild",
+				},
+				{
+					Name:"NextSibling",
+					Description:"A brass element linked to the nextSibling of the real HTML element.",
+					Code:"BrassElement.NextSibling",
+				},
+				{
+					Name:"InnerHTML",
+					Description:"Linked to the real HTML element's innerHTML",
+					Code:"BrassElement.InnerHTML",
+				},
+				{
+					Name:"InnerText",
+					Description:"Linked to the real HTML element's innerText",
+					Code:"BrassElement.InnerText",
+				},
+				{
+					Name:"Id",
+					Description:"Linked to the real HTML element's id",
+					Code:"BrassElement.Id",
+				},
+				{
+					Name:"Classes",
+					Description:"Linked to the real HTML element's className",
+					Code:"BrassElement.Classes",
+				},
+				{
+					Name:"ClassList",
+					Description:"Linked to the real HTML element's classList",
+					Code:"BrassElement.ClassList",
+				},
+			],
+		},
+		"BrassElement Optional Properties":{
+			Type:"Syntax",
+			Description:"All properties listed below will only be added to the {BrassElement} if they are found in the real HTML element.",
+			Elements:[
+				{
+					Name:"HRef",
+					Description:"Linked to the real HTML element's href",
+					Code:"BrassElement.HRef",
+				},
+				{
+					Name:"Source",
+					Description:"Linked to the real HTML element's src",
+					Code:"BrassElement.Source",
+				},
+				{
+					Name:"Value",
+					Description:"Linked to the real HTML element's value",
+					Code:"BrassElement.Value",
+				},
+				{
+					Name:"Width",
+					Description:"Linked to the real HTML element's width",
+					Code:"BrassElement.Width",
+				},
+				{
+					Name:"Height",
+					Description:"Linked to the real HTML element's height",
+					Code:"BrassElement.Height",
+				},
+				{
+					Name:"Type",
+					Description:"Linked to the real HTML element's type",
+					Code:"BrassElement.Type",
+				},
+				{
+					Name:"Placeholder",
+					Description:"Linked to the real HTML element's placeholder",
+					Code:"BrassElement.Placeholder",
+				},
+				{
+					Name:"Alt",
+					Description:"Linked to the real HTML element's alt",
+					Code:"BrassElement.Alt",
+				},
+				{
+					Name:"Target",
+					Description:"Linked to the real HTML element's target",
+					Code:"BrassElement.Target",
+				},
+				{
+					Name:"Min",
+					Description:"Linked to the real HTML element's min",
+					Code:"BrassElement.Min",
+				},
+				{
+					Name:"Max",
+					Description:"Linked to the real HTML element's max",
+					Code:"BrassElement.Max",
 				},
 			],
 		},
@@ -57,7 +179,40 @@
 			Elements:[
 				{
 					Description:"Testing the Brass Library",
-					Code:``,
+					Code:`class BaseInput extends BrassCreatableElement { //This is a BaseInput class, which extends the BrassCreatableElement class
+	constructor(Parent,Type,Properties={}){
+    	super("input");
+        for(let Name in Properties)this[Name]=Properties[Name];
+        this.Type = Type;
+        this.Parent = Parent;
+    }
+}
+
+class TextInput extends BaseInput {
+	constructor(Parent,Properties){
+    	super(Parent,"text",Properties);
+    }
+}
+
+class ButtonInput extends BaseInput {
+	constructor(Parent,Properties){
+    	super(Parent,"button",Properties);
+    }
+}
+
+const Document = new BrassDocumentElement(document);
+const Input = new TextInput(Document.Body,{
+	Value:"Hello, world!",
+    Placeholder:"Alert Message",
+});
+
+const Btn = new ButtonInput(Document.Body,{
+	Value:"Alert",
+});
+
+Btn.AddEvent("mousedown",()=>{
+	alert(Input.Value);
+});`,
 				},
 			],
 		}
