@@ -72,7 +72,7 @@ header {
 	background:var(--light-color);
 	font-family:"Fira Mono",monospace;
 	border-radius:var(--border-radius);
-	width:calc(100% - 150px);
+	width:calc(100% - 100px);
 }
 
 .small-code-block {
@@ -81,7 +81,8 @@ header {
 	background:var(--light-color);
 	font-family:"Fira Mono",monospace;
 	border-radius:var(--border-radius);
-	padding:5px;
+	padding-top:2px;
+	padding-bottom:2px;
 	padding-left:10px;
 	padding-right:10px;
 }
