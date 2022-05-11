@@ -1,3 +1,20 @@
+String.prototype.escapeHTML = function(){
+	let v = this.replace(/\&/g,"&amp;");
+    v = v.replace(/\</g,"&lt;");
+    v = v.replace(/\"/g,"&quot;");
+    v = v.replace(/\>/g,"&gt;");
+    v = v.replace(/\'/g,"&apos;");
+    return v;
+}
+
+String.prototype.isHTMLChar = function(Char){
+	return (this=="&lt;"&&Char=="<")||(this=="&gt;"&&Char==">")||(this=="&quot;"&&Char=="\"")||(this=="&amp;"&&Char=="&")||(this=="&apos;"&&Char=="'")
+}
+
+String.prototype.toHTMLChar = function(){
+	return {"\"":"&quot;","'":"&apos;","<":"&lt;",">":"&gt;","&":"&amp;"}[this];
+}
+
 const ColorText =(t,c)=>`<span style="color:${c};">${t}</span>`;
 const RCT=c=>ColorText("$&",c);
 const REP = (Text,Reg,Rep)=>Text.replace(Reg,Rep);
@@ -59,11 +76,11 @@ const HighlightTypes = {
 			},
 			{
 				name:"String",
-				match:"\".*?\"",
+				match:`\\${"\"".toHTMLChar()}.*?\\${"\"".toHTMLChar()}`,
 			},
 			{
 				name:"String",
-				match:"'.*?'",
+				match:`\\${"'".toHTMLChar()}.*?\\${"'".toHTMLChar()}`,
 			},
 			{
 				name:"Number",
@@ -101,7 +118,7 @@ const HighlightTypes = {
 			},
 			{
 				name:"Operator",
-				match:"(\\+|\\-|\\&gt\\;|\\&lt\\;|\\|\\&|\\~|\\*|\\/|\\^|\\!|\\:|\\?|\\.|\\,|\\%|\\=)",
+				match:"(\\+|\\-|\\&(gt|lt|amp|apos|quot)\\;|\\||\\~|\\*|\\/|\\^|\\!|\\:|\\?|\\.|\\,|\\%|\\=)",
 			},
 		];
 		return IterateMatches(Code,Matches);
@@ -115,5 +132,5 @@ const HighlightCode = (Code,Language)=>{
 const HighlightElements = document.querySelectorAll("[highlighted]");
 
 HighlightElements.forEach(x=>{
-	x.innerHTML = HighlightCode(x.innerText,x.getAttribute("highlight-language"));	
+	x.innerHTML = HighlightCode(x.innerText.escapeHTML(),x.getAttribute("highlight-language"));	
 });
