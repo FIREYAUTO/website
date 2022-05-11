@@ -113,12 +113,12 @@ const HighlightTypes = {
 				match:"(?<!\\.\\s*)\\w+(?=\\()",
 			},
 			{
-				name:"Bracket",
-				match:"(\\(|\\)|\\{|\\}|\\[|\\]|\\;)"
-			},
-			{
 				name:"Operator",
 				match:"(\\+|\\-|\\&(gt|lt|amp|apos|quot)\\;|\\||\\~|\\*|\\/|\\^|\\!|\\:|\\?|\\.|\\,|\\%|\\=)",
+			},
+			{
+				name:"Bracket",
+				match:"(\\(|\\)|\\{|\\}|\\[|\\]|\\;)"
 			},
 		];
 		return IterateMatches(Code,Matches);
