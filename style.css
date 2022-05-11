@@ -173,6 +173,14 @@ p {
 }
 
 hr {
+	height:4px;
+	color:var(--main-color);
+	background:var(--main-color);
+	border:0;
+	width:95%;
+}
+
+.small-hr {
 	height:2px;
 	color:var(--main-color);
 	background:var(--main-color);
