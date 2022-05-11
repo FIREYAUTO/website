@@ -106,7 +106,7 @@ const HighlightTypes = {
 			},
 			{
 				name:"Global",
-				match:"(?<!\\.)(\\b(document|window|setTimeout|setInterval|clearInterval|RegExp|Proxy|Object|String|Number|Boolean|Map|Set|Array|BigInt|parseInt|parseFloat|json|XMLHttpRequest|Request|fetch|atob|btoa|Infinity|isNaN|isFinite|NaN)\\b)",
+				match:"(?<!\\.)(\\b(document|window|setTimeout|setInterval|clearInterval|RegExp|Proxy|Object|String|Number|Boolean|Map|Set|Array|BigInt|parseInt|parseFloat|json|XMLHttpRequest|Request|fetch|atob|btoa|Infinity|isNaN|isFinite|NaN|console|localStorage|sessionStorage)\\b)",
 			},
 			{
 				name:"Boolean",
