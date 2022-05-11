@@ -40,6 +40,12 @@ header {
 	background:var(--active-color);
 }
 
+header > h1 {
+	margin-top:0 !important;
+	margin-bottom:0 !important;
+	font-size:var(--huge-font-size) !important;
+}
+
 #header-nav {
 	height:100%;
 	display:inline;
@@ -150,20 +156,20 @@ input:focus {
 }
 
 h1,h2,h3 {
-	margin-top:0;
-	margin-bottom:0;	
+	margin-top:5px;
+	margin-bottom:5p;	
 }
 
 h1 {
-	font-size:var(--huge-font-size);
+	font-size:calc(var(--huge-font-size) + 4px);
 }
 
 h2 {
-	font-size:calc(var(--huge-font-size) - 4px);
+	font-size:var(--huge-font-size);
 }
 
 h3 {
-	font-size:calc(var(--huge-font-size) - 8px);
+	font-size:calc(var(--huge-font-size) - 4px);
 }
 
 p {
