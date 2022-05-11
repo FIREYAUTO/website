@@ -71,3 +71,4 @@ const Apply = (a,b)=>{
 			}
 		}
 	}
+CheckHighlightElements();
