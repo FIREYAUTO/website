@@ -28,6 +28,11 @@ const Apply = (a,b)=>{
 		Create("h1",{
 			innerHTML:Name,
 		},Content);
+		if(Elements.Description){
+			Create("p",{
+				innerHTML:MatchText(Elements.Description),
+			},Content);	
+		}
 		Create("hr",{},Content);
 		for(let Element of Elements.Elements){
 			if(Elements.Type=="Syntax"){
