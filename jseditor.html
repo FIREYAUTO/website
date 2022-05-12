@@ -235,7 +235,7 @@
 			let doc = IFrame.contentDocument;
 			if(doc){
 				doc.open();
-				doc.write(`<!DOCTYPE HTML><html><head></head><body><script>${Editor.value}</script></body></html>`);
+				doc.write(`<!DOCTYPE HTML><html><head></head><body><${"scr"+"ipt"}>${Editor.value}</${"scr"+"ipt"}></body></html>`);
 				doc.close();
 			}
 		});
