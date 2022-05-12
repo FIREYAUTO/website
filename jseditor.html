@@ -230,12 +230,18 @@
 			IFrame=Frame;
 		}
 		
+		const AdditionalCode=`
+		window.onerror=function(m,u,l){
+			document.write("<span style=\\"color:#ff1c4a\\"><b>JavaScript Error</b>: "+m+" on line "+l+"</span>");
+		};
+		`;
+		
 		RunCode.addEventListener("mousedown",()=>{
 			MakeIFrame();
 			let doc = IFrame.contentDocument;
 			if(doc){
 				doc.open();
-				doc.write(`<!DOCTYPE HTML><html><style>:root{color:#ffffff}</style><head></head><body><${"scr"+"ipt"}>window.onerror=function(m,u,l){document.write("<span style=\"color:#ff1c4a\">"+"<b>JavaScript Error:</b> "+m+" on line "+l+"</span>")};${Editor.value}</${"scr"+"ipt"}></body></html>`);
+				doc.write(`<!DOCTYPE HTML><html><style>:root{color:#ffffff}</style><head></head><body><${"scr"+"ipt"}>${AdditionalCode};${Editor.value}</${"scr"+"ipt"}></body></html>`);
 				doc.close();
 			}
 		});
