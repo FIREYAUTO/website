@@ -82,6 +82,11 @@ const HighlightTypes = {
 			},
 			{
 				name:"String",
+				match:`\\${"\`".toHTMLChar()}.*?\\${"\`".toHTMLChar()}`,
+				types:"gms",
+			},
+			{
+				name:"String",
 				match:`\\${"'".toHTMLChar()}.*?\\${"'".toHTMLChar()}`,
 			},
 			{
@@ -111,6 +116,89 @@ const HighlightTypes = {
 			{
 				name:"Boolean",
 				match:"(\\b(true|false|null|undefined)\\b)",
+			},
+			{
+				name:"Call",
+				match:"(?<!\\.\\s*)\\w+(?=\\()",
+			},
+			{
+				name:"Operator",
+				match:"(\\+|\\-|\\&(gt|lt|amp|apos|quot)\\;|\\||\\~|\\*|\\/|\\^|\\!|\\:|\\?|\\.|\\,|\\%|\\=)",
+			},
+			{
+				name:"Bracket",
+				match:"(\\(|\\)|\\{|\\}|\\[|\\]|\\;)"
+			},
+		];
+		return IterateMatches(Code,Matches);
+	},
+	XBS:function(Code){
+		let Matches = [
+			{
+				name:"Comment",
+				match:"\\#\\&gt;.*\\&lt;\\#",
+				types:"gms",
+			},
+			{
+				name:"Comment",
+				match:"(?<!(\\&lt;|\\\".*?))\\#(?!(\\&gt;|.*?\\\")).*",
+			},
+			{
+				name:"String",
+				match:`\\${"\"".toHTMLChar()}.*?\\${"\"".toHTMLChar()}`,
+			},
+			{
+				name:"String",
+				match:`\\${"\`".toHTMLChar()}.*?\\${"\`".toHTMLChar()}`,
+				types:"gms",
+			},
+			{
+				name:"String",
+				match:`\\${"'".toHTMLChar()}.*?\\${"'".toHTMLChar()}`,
+			},
+			{
+				name:"Number",
+				match:"(?<!\\w+)((0(x[A-Fa-f0-9]+|(b[0-1]+))|((?<!\\.)\\.[0-9]+(e[\\+\\-]?[0-9]+)?)|([0-9]+(\\.[0-9]+)?(e[\\+\\-]?[0-9]+)?)))(?!\\w+)",
+			},
+			{
+				name:"Method",
+				match:"(?<=\\.)([A-Za-z_\\$][A-Za-z_0-9\\$]+)(?=\\s*\\()"
+			},
+			{
+				name:"Call",
+				match:"(?<=\\w+(\\&lt\\;const\\&gt\\;)*\\s*\\:\\s*)\\w+",
+			},
+			{
+				name:"Index",
+				match:"(?<=\\.)([A-Za-z_\\$][A-Za-z_0-9\\$]+)",
+			},
+			{
+				name:"Boolean",
+				match:"\\&lt\\;const\\&gt\\;",
+			},
+			{
+				name:"Keyword",
+				match:"(?<!\\.)(\\b(set|let|const|func|send|while|as|in|of|foreach|for|upvar|settype|locktype|del|unset|define|continue|stop|chunk|stackup|exit|class|extends|exclude|using|if|elif|else|new|with|destruct|isa|swap|switch|def|case|repeat|try|catch|finally|each|lockvar)\\b)",
+			},
+			{
+				name:"Global",
+				match:"(?<!\\.)(\\b(log|warn|info|error|window|document|console|inf|nan|object|tostring|toint|tofloat|type|load|time|delay|rawget|rawset|string|array|math|getlocalenv|env)\\b)",
+			},
+			{
+				name:"Method",
+				match:"(\\b(construct|super|self|__add|__sub|__div|__mul|__pow|__mod|__setindex|__index|__eq|__lt|__gt|__geq|__neq|__leq|__call|__tostring|__unm|__floordiv)\\b)",
+			},
+			{
+				name:"Boolean",
+				match:"(\\b(true|false|null)\\b)",
+			},
+			{
+				name:"Call",
+				match:"\\@\\w+(?=\\s*\\=)",
+			},
+			{
+				name:"Method",
+				match:"(?<=\\w+\\s*\\:{2})\\w+",
 			},
 			{
 				name:"Call",
