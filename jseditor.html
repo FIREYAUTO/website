@@ -230,11 +230,7 @@
 			IFrame=Frame;
 		}
 		
-		const AdditionalCode=`
-		window.onerror=function(m,u,l){
-			document.write("<span style=\\"color:#ff1c4a\\"><b>JavaScript Error</b>: "+m+" on line "+l+"</span>");
-		};
-		`;
+		const AdditionalCode=`window.onerror=function(m,u,l){document.write("<span style=\\"color:#ff1c4a\\"><b>JavaScript Error</b>: "+m+" on line "+l+"</span>");};`;
 		
 		RunCode.addEventListener("mousedown",()=>{
 			MakeIFrame();
