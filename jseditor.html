@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="style.css">
 	<style>
 		:root{
-			--editor-width:50%;
+			--editor-width:calc(50% - 10px);
 			--editor-height:500px;
 			--editor-font-size:14px;
 			--editor-font:"Fira Mono",monospace;
@@ -62,6 +62,18 @@
 			z-index:1;
 			position:relative;
 			resize:none;
+			display:inline;
+		}
+		
+		.result {
+			display:inline;
+			width:var(--editor-width);
+			height:var(--editor-height);
+			border:var(--editor-border);
+		}
+		
+		#btns > input {
+			margin-right:10px;
 		}
 	</style>
 </head>
@@ -74,13 +86,20 @@
 		<h1>JavaScript Editor</h1>
 		<pre id="highlighted-editor" class="editor"></pre>
 		<textarea id="editor" class="editor"></textarea>
+		<iframe class="result"></iframe>
+		<div id="btns">
+			<input type="button" class="active-btn" id="run-code" value="Run Code">
+		</div>
 	</div>
 	<script src="main.js"></script>
 	<script src="highlight.js"></script>
 	<script>
 		const Editor = document.getElementById("editor");
 		const HighlightedEditor = document.getElementById("highlighted-editor");
+		const RunCode = document.getElementById("run-code");
 		const EditorStyle = getComputedStyle(Editor);
+		const Buttons = document.getElementById("btns");
+		const Content = document.getElementById("content");
 		let EditorFocused = false;
 
 		function HighlightEditor(){
@@ -199,6 +218,27 @@
 			HighlightEditor();
 		});
 		Editor.addEventListener("input",HighlightEditor);
+		
+		let IFrame = undefined;
+		
+		function MakeIFrame(){
+			let Frame = document.querySelector(".result");
+			if(Frame)Frame.remove();
+			Frame = document.createElement("iframe");
+			Frame.className="result";
+			Content.insertBefore(Frame,Buttons);
+			IFrame=Frame;
+		}
+		
+		RunCode.addEventListener("mousedown",()=>{
+			MakeIFrame();
+			let doc = IFrame.contentDocument;
+			if(doc){
+				doc.open();
+				doc.write(`<!DOCTYPE HTML><html><head></head><body><script>${Editor.value}</script></body></html>`);
+				doc.close();
+			}
+		});
 	</script>
 </body>
 </html>
