@@ -2,6 +2,8 @@ const DefaultURL = "https://fireyauto.github.io/website/"
 const HeaderLinks = {
 	"Home":"index.html",
 	"JavaScript Editor":"jseditor.html",
+	"XBS Editor":"xbseditor.html",
+	"Epoxy Editor":"epoxyeditor.html",
 };
 
 const HeaderNav = document.getElementById("header-nav");
