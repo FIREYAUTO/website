@@ -91,8 +91,8 @@
 			let Box = Editor.getBoundingClientRect();
 			HighlightedEditor.style.top=`${Box.top+window.scrollY}px`;
 			HighlightedEditor.style.left=`${Box.left+window.scrollX}px`;
-			HighlightedEditor.style.width=`calc(${EditorStyle.getPropertyValue("width")} - calc(2 * ${EditorStyle.getPropertyValue("border-width")}))`;//`calc(calc(${EditorStyle.getPropertyValue("width")} - calc(${EditorStyle.getPropertyValue("padding-left")} * 2)) - calc(2 * ${EditorStyle.getPropertyValue("border-width")}))`;
-			HighlightedEditor.style.height=`calc(${EditorStyle.getPropertyValue("height")} - calc(2 * ${EditorStyle.getPropertyValue("border-width")}))`;//`calc(calc(${EditorStyle.getPropertyValue("height")} - calc(${EditorStyle.getPropertyValue("padding-top")} * 2)) - calc(2 * ${EditorStyle.getPropertyValue("border-width")}))`;
+			HighlightedEditor.style.width=EditorStyle.getPropertyValue("width");//`calc(calc(${EditorStyle.getPropertyValue("width")} - calc(${EditorStyle.getPropertyValue("padding-left")} * 2)) - calc(2 * ${EditorStyle.getPropertyValue("border-width")}))`;
+			HighlightedEditor.style.height=EditorStyle.getPropertyValue("height");//`calc(calc(${EditorStyle.getPropertyValue("height")} - calc(${EditorStyle.getPropertyValue("padding-top")} * 2)) - calc(2 * ${EditorStyle.getPropertyValue("border-width")}))`;
 		}
 
 		function ScrollHighlightedEditor(){
