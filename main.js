@@ -1,6 +1,7 @@
 const DefaultURL = "https://fireyauto.github.io/website/"
 const HeaderLinks = {
 	"Home":"index.html",
+	"JavaScript Editor":"jseditor.html",
 };
 
 const HeaderNav = document.getElementById("header-nav");
