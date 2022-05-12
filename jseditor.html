@@ -121,15 +121,13 @@
 	    ["{","}"],
 	    ["[","]"],
 	];
-	Editor.addEventListener("keydown",HighlightEditor);
-	Editor.addEventListener("keydown",ev=>{
+	function HandleKeyDown(ev){
 		let kc = ev.keyCode||ev.which;
 	    if(kc==9){
 		let{selectionStart:s,selectionEnd:e,value:v}=Editor;
 		Editor.value=`${v.substring(0,s)}\t${v.substring(s,e)}${v.substring(e,v.length)}`;
 		ev.preventDefault();
 		Editor.setSelectionRange(s+1,e+1);
-		HighlightEditor();
 	    }else if(ev.key=="Enter"){
 		let{selectionStart:s,selectionEnd:e,value:v}=Editor;
 		let vv = v.substring(0,s);
@@ -144,7 +142,6 @@
 		}
 		Editor.value=`${vv}\n${tabs>0?String.fromCharCode(9).repeat(tabs):""}${v.substring(e,v.length)}`;
 		Editor.setSelectionRange(s+tabs+1,s+tabs+1);
-		HighlightEditor();
 		ev.preventDefault();
 	    }else if(ev.key=="Backspace"){
 		let{selectionStart:s,selectionEnd:e,value:v}=Editor;
@@ -160,7 +157,6 @@
 			Editor.value = `${v.substring(0,s-1)}${v.substring(e+(p[1].length),v.length)}`;
 			Editor.setSelectionRange(s-1,s-1);
 			ev.preventDefault();
-			HighlightEditor();
 			break;
 		    }
 		}
@@ -197,11 +193,14 @@
 				Editor.setSelectionRange(s+p[0].length+l.length,s+p[0].length+l.length);
 			}
 			ev.preventDefault();
-			HighlightEditor();
 			break;
 		    }
 		}
 	    }
+	}
+	Editor.addEventListener("keydown",ev=>{
+		HandleKeyDown(ev);
+		HighlightEditor();
 	});
 	</script>
 </body>
