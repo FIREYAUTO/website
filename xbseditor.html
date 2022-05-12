@@ -14,7 +14,7 @@
 	<link rel="stylesheet" href="style.css">
 	<style>
 		:root{
-			--editor-width:calc(50% - 30px);
+			--editor-width:100%;
 			--editor-height:500px;
 			--editor-font-size:14px;
 			--editor-font:"Fira Mono",monospace;
@@ -64,13 +64,12 @@
 			z-index:1;
 			position:relative;
 			resize:none;
-			display:inline;
+			display:block;
 		}
 		
 		#result {
-			display:inline-block;
+			display:block;
 			width:var(--editor-width);
-			height:var(--editor-height);
 			border:var(--editor-border);
 			background:#3d3d3d;
 			white-space:pre-wrap;
@@ -90,7 +89,8 @@
 		<h1>JavaScript Editor</h1>
 		<pre id="highlighted-editor" class="editor"></pre>
 		<textarea id="editor" class="editor" spellcheck=false autocorrect=false autocapitalize=false></textarea>
-		<div id="result"></div>
+		<h2>Output</h2>
+		<pre id="result"></pre>
 		<div id="btns">
 			<input type="button" class="active-btn" id="run-code" value="Run Code">
 			<input type="button" class="btn" id="clear-output" value="Clear Output">
