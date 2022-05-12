@@ -252,7 +252,7 @@ const HighlightTypes = {
 			},
 			{
 				name:"Keyword",
-				match:"(?<!\\.)(\\b(var|const|fn|while|loop|iter|do|cls|as|in|of|if|elseif|else|break|continue|return|then|dvar|del)\\b)",
+				match:"(?<!\\.)(\\b(var|const|fn|while|loop|iter|do|cls|as|in|of|if|elseif|else|break|continue|return|then|dvar|del|switch|case|default)\\b)",
 			},
 			{
 				name:"Global",
