@@ -215,6 +215,68 @@ const HighlightTypes = {
 		];
 		return IterateMatches(Code,Matches);
 	},
+	Epoxy:function(Code){
+		let Matches = [
+			{
+				name:"Comment",
+				match:"\\-{2}\\[{2}.*?\\-{2}\\]{2}",
+				types:"gms",
+			},
+			{
+				name:"Comment",
+				match:"\\-{2}.*",
+			},
+			{
+				name:"String",
+				match:`\\${"\"".toHTMLChar()}.*?\\${"\"".toHTMLChar()}`,
+			},
+			{
+				name:"String",
+				match:`\\${"'".toHTMLChar()}.*?\\${"'".toHTMLChar()}`,
+			},
+			{
+				name:"Number",
+				match:"(?<!\\w+)((0(x[A-Fa-f0-9]+|(b[0-1]+))|((?<!\\.)\\.[0-9]+(e[\\+\\-]?[0-9]+)?)|([0-9]+(\\.[0-9]+)?(e[\\+\\-]?[0-9]+)?)))(?!\\w+)",
+			},
+			{
+				name:"Method",
+				match:"(?<=\\.)([A-Za-z_\\$][A-Za-z_0-9\\$]+)(?=\\s*\\()"
+			},
+			{
+				name:"Method",
+				match:"(?<=\\>{2})([A-Za-z_\\$][A-Za-z_0-9\\$]+)(?=\\s*\\()"
+			},
+			{
+				name:"Index",
+				match:"(?<=\\.)([A-Za-z_\\$][A-Za-z_0-9\\$]+)",
+			},
+			{
+				name:"Keyword",
+				match:"(?<!\\.)(\\b(var|const|fn|while|loop|iter|do|cls|as|in|of|if|elseif|else|break|continue|return|then|dvar|del)\\b)",
+			},
+			{
+				name:"Global",
+				match:"(?<!\\.)(\\b(log|warn|error|type|wait|time|getenv|async|tostring|toint|tofloat|assert|string|array|bit|thread|math|json|regex|debug)\\b)",
+			},
+			{
+				name:"Boolean",
+				match:"(\\b(true|false|null)\\b)",
+			},
+			{
+				name:"Call",
+				match:"(?<!\\.\\s*)\\w+(?=\\()",
+			},
+			{
+				name:"Operator",
+				match:"(\\+|\\-|\\&(gt|lt|amp|apos|quot)\\;|\\||\\~|\\*|\\/|\\^|\\!|\\:|\\?|\\.|\\,|\\%|\\=)",
+			},
+			{
+				name:"Bracket",
+				match:"(\\(|\\)|\\{|\\}|\\[|\\]|\\;)"
+			},
+		];
+		return IterateMatches(Code,Matches);
+	},
 };
 const HighlightCode = (Code,Language)=>{
 	if(!Language)Language="JavaScript";
