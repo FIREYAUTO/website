@@ -118,8 +118,8 @@
 		const ToOutput=(t,c)=>make("p",{style:{color:c},innerHTML:t.escapeHTML()},Output);
 		
 		const LibraryExtension = {
-			log:(...a)=>{ToOutput(joinArr(a),"#ffffff")},
-			warn:(...a)=>{ToOutput(joinArr(a),"#ff6f00")},
+			log:(stk,s,...a)=>{ToOutput(joinArr(a),"#ffffff")},
+			warn:(stk,s,...a)=>{ToOutput(joinArr(a),"#ff6f00")},
 		};
 
 		function HighlightEditor(){
