@@ -88,8 +88,8 @@
 
 	function MoveHighlightedEditor(){
 		let Box = Editor.getBoundingClientRect();
-		HighlightedEditor.style.top=`${Box.top+window.scrollTop}px`;
-		HighlightedEditor.style.left=`${Box.left+window.scrollLeft}px`;
+		HighlightedEditor.style.top=`${Box.top+window.scrollY}px`;
+		HighlightedEditor.style.left=`${Box.left+window.scrollX}px`;
 		HighlightedEditor.style.width=`calc(calc(${EditorStyle.getPropertyValue("width")} - calc(${EditorStyle.getPropertyValue("padding-left")} * 2)) - calc(2 * ${EditorStyle.getPropertyValue("border-width")}))`;
 		HighlightedEditor.style.height=`calc(calc(${EditorStyle.getPropertyValue("height")} - calc(${EditorStyle.getPropertyValue("padding-top")} * 2)) - calc(2 * ${EditorStyle.getPropertyValue("border-width")}))`;
 	}
