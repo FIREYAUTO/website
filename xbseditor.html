@@ -73,6 +73,7 @@
 			height:var(--editor-height);
 			border:var(--editor-border);
 			background:#3d3d3d;
+			white-space:pre;
 		}
 		
 		#btns > input {
@@ -89,7 +90,7 @@
 		<h1>JavaScript Editor</h1>
 		<pre id="highlighted-editor" class="editor"></pre>
 		<textarea id="editor" class="editor" spellcheck=false autocorrect=false autocapitalize=false></textarea>
-		<pre id="result"></pre>
+		<div id="result"></div>
 		<div id="btns">
 			<input type="button" class="active-btn" id="run-code" value="Run Code">
 			<input type="button" class="btn" id="clear-output" value="Clear Output">
@@ -105,7 +106,7 @@
 		const Buttons = document.getElementById("btns");
 		const Content = document.getElementById("content");
 		const Output = document.getElementById("result");
-		const ClearOutput = document.getElementById("output");
+		const ClearOutput = document.getElementById("clear-output");
 		let EditorFocused = false;
 		
 		const _apply=(a,b)=>{for(let k in b){let v=b[k];if(typeof v=="object")_apply(a[k],v);else a[k]=v}}
