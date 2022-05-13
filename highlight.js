@@ -119,7 +119,7 @@ const HighlightTypes = {
 			},
 			{
 				name:"Call",
-				match:"(?<!\\.\\s*)\\w+(?=\\()",
+				match:"(?<!\\.\\s*)([A-Za-z_\\$][A-Za-z_0-0\\$]+)(?=\\()",
 			},
 			{
 				name:"Operator",
