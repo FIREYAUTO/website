@@ -291,6 +291,18 @@ const HighlightTypes = {
 				name:"Number",
 				match:`\\${"'".toHTMLChar()}.*?\\${"'".toHTMLChar()}`,
 			},
+			{	
+				name:"Method",
+				match:"(?<=\\.)(.*?)(?=\\s*\\()"
+			},
+			{
+				name:"Index",
+				match:`(?<=\\.)([A-Za-z0-9_]|(${"\"".toHTMLChar()}|${"'".toHTMLChar()}|\`).*?(${"\"".toHTMLChar()}|${"'".toHTMLChar()}|\`))`,
+			},
+			{
+				name:"Call",
+				match:"(?<!\\.\\s*)[A-Za-z0-9_](?=\\()",
+			},
 			{
 				name:"Operator",
 				match:"(\\+|\\-|\\&(gt|lt|amp|apos|quot)\\;|\\||\\~|\\*|\\/|\\^|\\!|\\:|\\?|\\.|\\,|\\%|\\=|\\$|\\#|\\@)",
@@ -298,14 +310,6 @@ const HighlightTypes = {
 			{
 				name:"Bracket",
 				match:"(\\(|\\)|\\{|\\}|\\[|\\]|\\;)"
-			},
-			{	
-				name:"Method",
-				match:"(?<=\\.)(.*?)(?=\\s*\\()"
-			},
-			{
-				name:"Index",
-				match:`(?<=\\.)([A-Za-z0-9]|(${"\"".toHTMLChar()}|${"'".toHTMLChar()}|\`).*?(${"\"".toHTMLChar()}|${"'".toHTMLChar()}|\`))`,
 			},
 			{
 				name:"Global",
@@ -316,8 +320,8 @@ const HighlightTypes = {
 				match:"(T|F|U)",
 			},
 			{
-				name:"Call",
-				match:"(?<!\\.\\s*)[A-Za-z](?=\\()",
+				name:"String",
+				match:"[A-Za-z_0-9]+",
 			},
 		];
 		return IterateMatches(Code,Matches);
