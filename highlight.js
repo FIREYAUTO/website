@@ -291,6 +291,14 @@ const HighlightTypes = {
 				name:"Number",
 				match:`\\${"'".toHTMLChar()}.*?\\${"'".toHTMLChar()}`,
 			},
+			{
+				name:"Operator",
+				match:"(\\+|\\-|\\&(gt|lt|amp|apos|quot)\\;|\\||\\~|\\*|\\/|\\^|\\!|\\:|\\?|\\.|\\,|\\%|\\=|\\$|\\#|\\@)",
+			},
+			{
+				name:"Bracket",
+				match:"(\\(|\\)|\\{|\\}|\\[|\\]|\\;)"
+			},
 			{	
 				name:"Method",
 				match:"(?<=\\.)(.*?)(?=\\s*\\()"
@@ -310,14 +318,6 @@ const HighlightTypes = {
 			{
 				name:"Call",
 				match:"(?<!\\.\\s*)[A-Za-z](?=\\()",
-			},
-			{
-				name:"Operator",
-				match:"(\\+|\\-|\\&(gt|lt|amp|apos|quot)\\;|\\||\\~|\\*|\\/|\\^|\\!|\\:|\\?|\\.|\\,|\\%|\\=|\\$|\\#|\\@)",
-			},
-			{
-				name:"Bracket",
-				match:"(\\(|\\)|\\{|\\}|\\[|\\]|\\;)"
 			},
 		];
 		return IterateMatches(Code,Matches);
