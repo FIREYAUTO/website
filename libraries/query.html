@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta page-name="Storage Library">
+	<title>Website</title>
+	<script src="https://fireyauto.github.io/website/site.js"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://fireyauto.github.io/website/style.css">
+</head>
+<body>
+	<header>
+		<h1>Website</h1>
+		<div id="header-nav"></div>
+	</header>
+	<div id="content">
+		<h1>Query Framework</h1>
+		<hr>
+		<h1>Links></h1>
+		<a href="https://github.com/FIREYAUTO/query">Query Framework on GitHub</a>
+		<hr>
+		<h1>About</h1>
+		<p>Query is basically just a bootleg JQuery with a lot less features.</p>
+		<hr>
+	</div>
+	<script src="https://fireyauto.github.io/website/main.js"></script>
+	<script src="https://fireyauto.github.io/website/highlight.js"></script>
+	<script>
+	
+		
+	const Language = "JavaScript";
+	const Content = document.getElementById("content");
+	const ElementTable = {
+		"Classes":{
+			Type:"Syntax",
+			Elements:[
+				{
+					Name:"$",
+					Description:"The {$} function is the main variable for the Query framework. The {Selector} is like {{document.querySelector}}, and the {Selection} is a bool determining if it uses {{document.querySelectorAll}}",
+					Code:"$(Selector,Selection)",
+				},
+			],
+		},
+		"Methods":{
+			Type:"Syntax",
+			Elements:[
+				{
+					Name:"text",
+					Description:"Sets the {innerHTML} or {value} of the current query",
+					Code:`$("#example").text("Hello, world!")`,
+				},
+				{
+					Name:"style",
+					Description:"Updates the style of the current query, or will create a new stylesheet rule.",
+					Code:`$("#example").style("color:#ff0000")\n$("#example").style({color:"#ff0000"})`,
+				},
+				{
+					Name:"event",
+					Description:"Adds an event listener to the current query with the given type and function",
+					Code:`$("#example").event("click",e=>{})`,
+				},
+				{
+					Name:"attribute",
+					Description:"Returns the attribute with the given name in the current query. Aliases include: {attr}",
+					Code:`$("#example").attribute("attr")`,
+				},
+				{
+					Name:"property",
+					Description:"Returns the property with the given name in the current query. Aliases include: {prop,p}",
+					Code:`$("#example").property("id")`,
+				},
+				{
+					Name:"write",
+					Description:"The same as document.write",
+					Code:`$.write("Hello, world!")`,
+				},
+				{
+					Name:"newline",
+					Description:"Sets the current query to a new br element. Aliases include: {br}",
+					Code:`$.newline()`,
+				},
+				{
+					Name:"animate",
+					Description:"Uses the DOM's animation library. The same as {{HTMLElement.animate()}}",
+					Code:`$("#example").animate({opacity:[0,1,0],color:["#fff","#000"]},2000)`,
+				},
+				{
+					Name:"setproperty",
+					Description:"Sets the property with the given name and value in the current query. Aliases include: {setprop,sp}",
+					Code:`$("#example").setproperty("id","test")`,
+				},
+				{
+					Name:"animations",
+					Description:"The same as {{HTMLElement.getAnimations()}}",
+					Code:`$("#example").animations()`,
+				},
+				{
+					Name:"loop",
+					Description:"Loops x amount of times with the provided function. This is an async method",
+					Code:`$.loop(5,(_,i)=>$.write(i));`,
+				},
+				{
+					Name:"wait",
+					Description:"Waits the given amount of seconds. This is an async method",
+					Code:`$.wait(Seconds)`,
+				},
+				{
+					Name:"typewrite",
+					Description:"A type-writer effect on the current query.",
+					Code:`$("#example").typewrite(Text,Interval)`,
+				},
+				{
+					Name:"self",
+					Description:"Returns the current query",
+					Code:`$("#example").self()`,
+				},
+				{
+					Name:"to",
+					Description:"Changes the query, this is the same as using {$(Selector)} but without using the {$} variable",
+					Code:`$("#example").to("#example2")`,
+				},
+				{
+					Name:"new",
+					Description:"Creates a new HTML element with the given tagName and properties, and will add it to the given parent node",
+					Code:`$.new("p",{innerHTML:"Hello, world!"},$("#example").self())`,
+				},
+				{
+					Name:"append",
+					Description:"Appends the given query to the current query",
+					Code:`$("#example").append("#example2")`,
+				},
+				{
+					Name:"before",
+					Description:"Inserts the current query before the given query",
+					Code:`$("#example").before("#example2")`,
+				},
+				{
+					Name:"after",
+					Description:"Inserts the current query after the given query",
+					Code:`$("#example").after("#example2")`,
+				},
+				{
+					Name:"id",
+					Description:"Sets the {id}  of the current query",
+					Code:`$("#example").id("new-example")`,
+				},
+			],
+		},
+		"Library Examples":{
+			Type:"Examples",
+			Elements:[
+				{
+					Description:"Testing features of the query framework",
+					Code:`$.new("button").text("Test").id("c2").before("#c").br().after("#c2").to("#c").text("Hi");`,
+				},
+				{
+					Description:"Testing async methods of the query framework",
+					Code:`$.loop(5,async i=>{await $("#c").animate({opacity:[0,1,0],color:["#fff","#000"]},2000).finished});`,
+				},
+				{
+					Description:"Testing multiple selections in the query framework",
+					Code:`let i=1&#10;$(".test",1).text(e=>`p#${i++}`);`,
+				},
+			],
+		}
+	}
+	
+	</script>
+	<script src="https://fireyauto.github.io/website/makecontent.js"></script>
+</body>
+</html>
