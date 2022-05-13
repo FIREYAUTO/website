@@ -277,6 +277,51 @@ const HighlightTypes = {
 		];
 		return IterateMatches(Code,Matches);
 	},
+	SingleScript:function(Code){
+		let Matches = [
+			{
+				name:"String",
+				match:`\\${"\"".toHTMLChar()}.*?\\${"\"".toHTMLChar()}`,
+			},
+			{
+				name:"String",
+				match:`\\\`.*?\\\``,
+			},
+			{
+				name:"Number",
+				match:`\\${"'".toHTMLChar()}.*?\\${"'".toHTMLChar()}`,
+			},
+			{	
+				name:"Method",
+				match:"(?<=\\.)(.*?)(?=\\s*\\()"
+			},
+			{
+				name:"Index",
+				match:`(?<=\\.)([A-Za-z0-9]|(${"\"".toHTMLChar()}|${"'".toHTMLChar()}|\`).*?(${"\"".toHTMLChar()}|${"'".toHTMLChar()}|\`))`,
+			},
+			{
+				name:"Global",
+				match:"(?<!\\.)(l|W|D|V|E)",
+			},
+			{
+				name:"Boolean",
+				match:"(T|F|U)",
+			},
+			{
+				name:"Call",
+				match:"(?<!\\.\\s*)[A-Za-z](?=\\()",
+			},
+			{
+				name:"Operator",
+				match:"(\\+|\\-|\\&(gt|lt|amp|apos|quot)\\;|\\||\\~|\\*|\\/|\\^|\\!|\\:|\\?|\\.|\\,|\\%|\\=|\\$|\\#)",
+			},
+			{
+				name:"Bracket",
+				match:"(\\(|\\)|\\{|\\}|\\[|\\]|\\;)"
+			},
+		];
+		return IterateMatches(Code,Matches);
+	},
 };
 const HighlightCode = (Code,Language)=>{
 	if(!Language)Language="JavaScript";
