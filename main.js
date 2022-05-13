@@ -4,6 +4,7 @@ const HeaderLinks = {
 	"JavaScript Editor":"jseditor.html",
 	"XBS Editor":"xbseditor.html",
 	"Epoxy Editor":"epoxyeditor.html",
+	"SingleScript Editor":"singlescripteditor.html",
 };
 
 const HeaderNav = document.getElementById("header-nav");
