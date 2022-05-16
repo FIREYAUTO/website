@@ -268,7 +268,7 @@ const HighlightTypes = {
 			},
 			{
 				name:"Operator",
-				match:"(\\+|\\-|\\&(gt|lt|amp|apos|quot)\\;|\\||\\~|\\*|\\/|\\^|\\!|\\:|\\?|\\.|\\,|\\%|\\=)",
+				match:"(\\+|\\-|\\&(gt|lt|amp|apos|quot)\\;|\\||\\~|\\*|\\/|\\^|\\!|\\:|\\?|\\.|\\,|\\%|\\=|\\#)",
 			},
 			{
 				name:"Bracket",
