@@ -2,6 +2,7 @@ const DefaultURL = "https://fireyauto.github.io/website/"
 const HeaderLinks = {
 	"Home":"index.html",
 	"JavaScript Editor":"jseditor.html",
+	"JavaScript Console Editor":"jsconsoleeditor.html",
 	"XBS Editor":"xbseditor.html",
 	"Epoxy Editor":"epoxyeditor.html",
 	"SingleScript Editor":"singlescripteditor.html",
