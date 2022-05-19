@@ -231,15 +231,15 @@
 		const pcn=console,prx={
 			log:(...a)=>{
 				pcn.log(...a);
-				ToOutput(a,"#ffffff");
+				ToOutput(joinArr(a),"#ffffff");
 			},
 			warn:(...a)=>{
 				pcn.warn(...a);
-				ToOutput(a,"#ff7a13");
+				ToOutput(joinArr(a),"#ff7a13");
 			},
 			err:(...a)=>{
 				pcn.err(...a);
-				ToOutput(a,"#ff1c4a");
+				ToOutput(joinArr(a),"#ff1c4a");
 			},
 		};
 		window.console=new Proxy(prx,{
