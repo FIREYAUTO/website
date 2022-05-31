@@ -205,6 +205,10 @@ const HighlightTypes = {
 				match:"(?<!\\.\\s*)\\w+(?=\\()",
 			},
 			{
+				name:"Index",
+				match:"(\\b(private|method|undefined)\\b)",
+			},
+			{
 				name:"Operator",
 				match:"(\\+|\\-|\\&(gt|lt|amp|apos|quot)\\;|\\||\\~|\\*|\\/|\\^|\\!|\\:|\\?|\\.|\\,|\\%|\\=)",
 			},
