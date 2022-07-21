@@ -11,6 +11,9 @@ window.onload = function(){
 	if(siteTitle&&pageName)siteTitle.innerHTML=`${pageName} - ${siteTitle.innerHTML}`;
 }
 
+/*
+//Removed due to it being not need now.
 window.onbeforeunload = window.onbeforereload = function(){
 	return "";
 }
+*/
