@@ -12,7 +12,7 @@ window.onload = function(){
 	let h=document.head;
 	let i=document.createElement("link");
 	i.rel="icon";
-	i.href="fs.png";
+	i.href="https://fireyauto.github.io/website/fs.png";
 	h.appendChild(i);
 }
 
