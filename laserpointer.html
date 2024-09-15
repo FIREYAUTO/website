@@ -14,6 +14,10 @@ body {
 
 const Point = document.getElementById("point");
 const PointStyle = Point.style;
+const sin = Math.sin;
+const cos = Math.cos;
+
+let T = 0;
 
 let MX = 0,
 	MY = 0,
@@ -30,8 +34,11 @@ document.addEventListener("mousemove",e=>{
 });
 
 function Render(){
-	MX = Lerp(MX,window.innerWidth-AX,0.075);
-    MY = Lerp(MY,window.innerHeight-AY,0.075);
+	T += 0.1
+	let SX = 100*cos(T*(0.5*(3+cos(T/7))))
+    let SY = 100*sin(T*(0.5*(3+cos(T/5))))
+	MX = Lerp(MX,window.innerWidth-AX+SX,0.075);
+    MY = Lerp(MY,window.innerHeight-AY+SY,0.075);
     PointStyle.left = `${MX-25}px`
     PointStyle.top = `${MY-25}px`
 	return window.requestAnimationFrame(Render);
