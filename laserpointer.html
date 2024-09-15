@@ -35,8 +35,8 @@ document.addEventListener("mousemove",e=>{
 
 function Render(){
 	T += 0.1
-	let SX = 100*cos(T*(0.5*(3+cos(T/7))))
-    let SY = 100*sin(T*(0.5*(3+cos(T/5))))
+	let SX = 100*cos(T+(10*(3+cos(T/7))))
+    let SY = 100*sin(T+(10*(3+cos(T/5))))
 	MX = Lerp(MX,window.innerWidth-AX+SX,0.075);
     MY = Lerp(MY,window.innerHeight-AY+SY,0.075);
     PointStyle.left = `${MX-25}px`
