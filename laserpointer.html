@@ -1,0 +1,42 @@
+<style>
+#point {
+	background:radial-gradient(closest-side,#ff1c4a, rgba(255,255,255,0));
+    width:50px;
+    height:50px;
+    position:absolute;
+}
+body {
+	background:#000000;
+}
+</style>
+<body><div id="point"></div></body>
+<script>
+
+const Point = document.getElementById("point");
+const PointStyle = Point.style;
+
+let MX = 0,
+	MY = 0,
+    AX = 0,
+    AY = 0;
+
+function Lerp(a,b,t){
+	return (1-t)*a+t*b;
+}
+
+document.addEventListener("mousemove",e=>{
+	AX = e.clientX,
+    AY = e.clientY;
+});
+
+function Render(){
+	MX = Lerp(MX,AX,0.05);
+    MY = Lerp(MY,AY,0.05);
+    PointStyle.left = `${MX-25}px`
+    PointStyle.top = `${MY-25}px`
+	return window.requestAnimationFrame(Render);
+}
+
+Render();
+
+</script>
