@@ -7,7 +7,6 @@
 }
 body {
 	background:#000000;
-    cursor: none;
 }
 </style>
 <body><div id="point"></div></body>
@@ -31,8 +30,8 @@ document.addEventListener("mousemove",e=>{
 });
 
 function Render(){
-	MX = Lerp(MX,AX,0.05);
-    MY = Lerp(MY,AY,0.05);
+	MX = Lerp(MX,window.innerWidth-AX,0.075);
+    MY = Lerp(MY,window.innerHeight-AY,0.075);
     PointStyle.left = `${MX-25}px`
     PointStyle.top = `${MY-25}px`
 	return window.requestAnimationFrame(Render);
